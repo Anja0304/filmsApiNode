@@ -1,0 +1,13 @@
+{
+  "development": {
+    "username": "sa",
+    "password": "31122017",
+    "database": "Film",
+    "host": "127.0.0.1",
+    "dialect": "mssql",
+    "dialectOptions": {
+        "instanceName": "SQLEXPRESS"
+    }
+  }
+  
+}
