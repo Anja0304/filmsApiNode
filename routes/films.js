@@ -43,9 +43,56 @@ model.Films.findAll({})
 
 
 router.put('/film/:id', function(req, res, next) {
+console.log("***Bodyyyy******************", req.body);
+
+model.Films.update({
+	title: req.body.title,
+	description: req.body.description,
+	image: req.body.image,
+	url: req.body.url
+},
+{
+where: {
+        id: req.params.id
+      }
+
+
+  }).then(film => res.status(201).json({
+	error: false,
+	data: film,
+	message:'Le film a été modifié'
+}))
+.catch(error => res.status(401).json({
+	error: true,
+	data : [],
+	error : error
+
+}));
+
 
 });
+
 router.delete('/film/:id', function(req, res, next) {
+console.log("***Bodyyyy******************", req.body);
+
+model.Films.destroy({
+
+
+      where: {
+        id: req.params.id
+      }
+
+}).then(film => res.status(201).json({
+	error: false,
+	data: film,
+	message:'Le film a été supprimé'
+}))
+.catch(error => res.status(401).json({
+	error: true,
+	data : [],
+	error : error
+
+}));
 
 });
 
